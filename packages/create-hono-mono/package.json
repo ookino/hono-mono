@@ -1,7 +1,27 @@
 {
   "name": "@ookino/create-hono-mono",
   "version": "0.1.0",
+  "description": "Scaffold a full-stack Bun monorepo with Hono, Drizzle, TanStack Start and Cloudflare Workers",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ookino/hono-mono.git",
+    "directory": "packages/create-hono-mono"
+  },
+  "homepage": "https://github.com/ookino/hono-mono#readme",
+  "bugs": {
+    "url": "https://github.com/ookino/hono-mono/issues"
+  },
+  "keywords": [
+    "hono",
+    "bun",
+    "monorepo",
+    "tanstack",
+    "drizzle",
+    "cloudflare-workers",
+    "create"
+  ],
+  "license": "MIT",
   "bin": {
     "create-hono-mono": "./dist/index.js"
   },
