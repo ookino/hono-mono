@@ -1,0 +1,20 @@
+{
+  "name": "@ookino/create-hono-mono",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "create-hono-mono": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "bun build src/index.ts --target=node --outfile=dist/index.js --banner='#!/usr/bin/env node'",
+    "prepublishOnly": "bun run build"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.9.0",
+    "degit": "^2.8.4"
+  },
+  "devDependencies": {
+    "@types/degit": "^2.8.6",
+    "typescript": "^5.0.0"
+  }
+}
