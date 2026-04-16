@@ -1,0 +1,24 @@
+{
+  "name": "@workspace/database",
+  "type": "module",
+  "scripts": {
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "db:push": "drizzle-kit push"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./schema": "./src/schema/index.ts",
+    "./client": "./src/client.ts"
+  },
+  "dependencies": {
+    "@workspace/shared": "workspace:*",
+    "drizzle-orm": "^0.44.0",
+    "nanoid": "^5.0.0",
+    "postgres": "^3.0.0"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.0"
+  }
+}

@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+.output/
+.vinxi/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Cloudflare
+.wrangler/
+.dev.vars
+
+# Drizzle migrations (meta only — keep SQL files)
+**/src/migrations/meta/
+
+# TanStack Router (auto-generated)
+**/src/routeTree.gen.ts
+
+# Logs
+*.log
+npm-debug.log*
+bun-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+*.swp
+*.swo
