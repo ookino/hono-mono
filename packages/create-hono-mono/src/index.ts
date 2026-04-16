@@ -11,7 +11,7 @@ type Platform = "mixed" | "bun" | "cf";
 async function main() {
 	console.clear();
 
-	p.intro("create-starter");
+	p.intro("create-hono-mono");
 
 	const name = await p.text({
 		message: "Project name",
@@ -61,9 +61,17 @@ async function main() {
 	renameProject(name as string);
 	s.stop("Project renamed");
 
-	s.start("Installing dependencies");
-	execSync("bun install", { cwd: name as string, stdio: "pipe" });
-	s.stop("Dependencies installed");
+	const shouldInstall = await p.confirm({
+		message: "Install dependencies now?",
+		initialValue: true,
+	});
+	if (p.isCancel(shouldInstall)) { p.cancel("Cancelled"); process.exit(0); }
+
+	if (shouldInstall) {
+		s.start("Installing dependencies");
+		execSync("bun install", { cwd: name as string, stdio: "pipe" });
+		s.stop("Dependencies installed");
+	}
 
 	const needsDocker = platform === "bun" || platform === "mixed";
 
@@ -74,6 +82,7 @@ async function main() {
 			"cp apps/web/.env.example apps/web/.env",
 			needsDocker ? "docker compose up -d" : "",
 			needsDocker ? "bun run --filter '@workspace/database' db:migrate" : "",
+			!shouldInstall ? "bun install" : "",
 			"bun dev",
 		]
 			.filter(Boolean)
@@ -82,6 +91,7 @@ async function main() {
 	);
 
 	p.outro("Happy building!");
+	process.exit(0);
 }
 
 // ---------------------------------------------------------------------------
