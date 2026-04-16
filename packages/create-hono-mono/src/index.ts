@@ -4,7 +4,7 @@ import { execSync } from "node:child_process";
 import { existsSync, readFileSync, writeFileSync, unlinkSync } from "node:fs";
 import { join } from "node:path";
 
-const REPO = "ookino/hono-mono#v0.1.0";
+const REPO = "ookino/hono-mono#v0.2.0";
 
 type Platform = "mixed" | "bun" | "cf";
 
